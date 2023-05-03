@@ -1,10 +1,8 @@
 package com.example.userspgo.Repositories
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.userspgo.Common.Common
 import com.example.userspgo.Model.UserModelItem
-import com.example.userspgo.Model.UserModelX
 import com.example.userspgo.Network.APIService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -25,10 +23,11 @@ class MainRepo {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe{usersModels->
                     if(usersModels!=null){
-                        val activeUsers = usersModels.filter { it.status == "active" }.toMutableList() // filter out inactive users
-                        data.value=activeUsers
+                        //val activeUsers = usersModels.filter { it.status == "active" }.toMutableList() // filter out inactive users
+                        data.value=usersModels
                     }
                 })
             return data
         }
+
 }

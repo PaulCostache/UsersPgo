@@ -6,4 +6,5 @@ data class UserModelItem(
     val id: Int,
     val name: String,
     val status: String
+
 )

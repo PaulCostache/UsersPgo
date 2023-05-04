@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">UsersPgo</string>
+    <string name="MainActivityTitle">Contacts</string>
+    <string name="hello_blank_fragment">hello fragment</string>
+    <string name="my_contacts">MY CONTACTS</string>
+    <string name="FragmentTitle">Contact Details</string>
+    <string name="empty_title">Empty</string>
+    <string name="no_post_provided">No post provided</string>
+
 </resources>

@@ -5,6 +5,7 @@ data class UserModelItem(
     val gender: String,
     val id: Int,
     val name: String,
-    val status: String
-
+    val status: String,
+    var imageUrl: String? =null,
+    val initials: String?
 )

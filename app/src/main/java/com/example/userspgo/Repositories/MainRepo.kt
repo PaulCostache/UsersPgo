@@ -23,11 +23,9 @@ class MainRepo {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe{usersModels->
                     if(usersModels!=null){
-                        //val activeUsers = usersModels.filter { it.status == "active" }.toMutableList() // filter out inactive users
                         data.value=usersModels
                     }
                 })
             return data
         }
-
 }

@@ -1,6 +1,5 @@
 package com.example.userspgo.Network
 
-import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

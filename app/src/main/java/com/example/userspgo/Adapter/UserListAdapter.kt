@@ -11,8 +11,11 @@ import com.example.userspgo.R
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
-class UserListAdapter(var context: Context,var userModelList: MutableList<UserModelItem>):
-RecyclerView.Adapter<UserListAdapter.MyViewHolder>(){
+class UserListAdapter(
+    var context: Context,
+    var userModelList: MutableList<UserModelItem>,
+    var listener: OnItemClickListener
+    ): RecyclerView.Adapter<UserListAdapter.MyViewHolder>(){
     inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var txtUserName: TextView
         var imgUserAvatar: CircleImageView
@@ -20,19 +23,23 @@ RecyclerView.Adapter<UserListAdapter.MyViewHolder>(){
         init {
             txtUserName=itemView.findViewById(R.id.txtUserName)
             imgUserAvatar = itemView.findViewById(R.id.profileImageView)
+
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val userModel = userModelList[position]
+                    listener.onItemClick(userModel)
+                }
+            }
         }
-
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListAdapter.MyViewHolder {
         return MyViewHolder(
             LayoutInflater.from(context).inflate(R.layout.layout_user_item,parent,false))
     }
 
     override fun onBindViewHolder(holder: UserListAdapter.MyViewHolder, position: Int) {
-       // holder.txtUserName.text= StringBuilder(userModelList[position].name).toString()
-       // val user = userModelList[position]
-      //  holder.txtUserName.text = StringBuilder(user.name).toString()
+
         val userModel = userModelList[position]
         holder.txtUserName.text = userModel.name
 
@@ -43,10 +50,11 @@ RecyclerView.Adapter<UserListAdapter.MyViewHolder>(){
                 .placeholder(R.drawable.ic_launcher_foreground) // add placeholder image
                 .into(holder.imgUserAvatar)
         }
-
     }
-
     override fun getItemCount(): Int {
         return userModelList.size
+    }
+    interface OnItemClickListener {
+        fun onItemClick(userModel: UserModelItem)
     }
 }

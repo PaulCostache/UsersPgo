@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(),UserListAdapter.OnItemClickListener{
         recyclerUser!!.layoutManager=layoutManager
 
         mainActivityViewModel!!.getUserList().observe(this) { userModels ->
-            Log.e("MainActivity", "UserList: " + userModels.get(0).name)
+//            Log.e("MainActivity", "UserList: " + userModels.get(0).name)
 
             adapter= UserListAdapter(this,userModels,this)
             adapter!!.notifyDataSetChanged()

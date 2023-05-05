@@ -1,5 +1,7 @@
 package com.example.userspgo.ViewModel
 
+import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,7 +9,7 @@ import com.example.userspgo.Model.PostModelItem
 import com.example.userspgo.Model.UserModelItem
 import com.example.userspgo.Repositories.MainRepo
 
-class MainActivityViewModel:ViewModel() {
+class MainActivityViewModel():ViewModel() {
 
     private val mainRepo:MainRepo
     init{

@@ -18,30 +18,6 @@ class MainRepo {
     init {
         apiService=Common.getAPIService
     }
-    /*fun getUserModelList(): MutableLiveData<MutableList<UserModelItem>> {
-        val data: MutableLiveData<MutableList<UserModelItem>> = MutableLiveData<MutableList<UserModelItem>>()
-        compositeDisposable.add(apiService.getUsers()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { usersModels ->
-                if (usersModels != null) {
-                    data.value = usersModels
-                }
-            })
-        return data
-    }
-    fun getUserPostsLiveData(userId: Int): MutableLiveData<MutableList<PostModelItem>> {
-        val data: MutableLiveData<MutableList<PostModelItem>> = MutableLiveData<MutableList<PostModelItem>>()
-        compositeDisposable.add(apiService.getUserPosts(userId)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { postModels ->
-                if (postModels != null) {
-                    data.value = postModels
-                }
-            })
-        return data
-    }*/
     fun getUserModelList(): MutableLiveData<MutableList<UserModelItem>> {
         val data: MutableLiveData<MutableList<UserModelItem>> = MutableLiveData<MutableList<UserModelItem>>()
         compositeDisposable.add(apiService.getUsers()
